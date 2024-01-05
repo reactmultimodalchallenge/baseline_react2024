@@ -1,13 +1,15 @@
 # This is the official baseline code for the Second REACT Challenge (REACT2024)
 [[Homepage]](https://sites.google.com/cam.ac.uk/react2024)  [[Reference Paper (TBA)]]() [[Code]](https://github.com/reactmultimodalchallenge/baseline_react2024)
 
-This repository provides baseline methods for the [REACT 2024 Multimodal Challenge](https://sites.google.com/cam.ac.uk/react2024)
+This repository provides baseline methods for the [Second REACT Challenge](https://sites.google.com/cam.ac.uk/react2024)
 
 ### Baseline paper:
 TBA
 
 ### Challenge Description
-Human behavioural responses are stimulated by their environment (or context), and people will inductively process the stimulus and modify their interactions to produce an appropriate response. When facing the same stimulus, different facial reactions could be triggered across not only different subjects but also the same subjects under different contexts. The Second REACT Challenge (REACT2024) is a satellite event of IEEE FG2024, (Istanbul, Turkey, May 2024), which aims at comparison of multimedia processing and machine learning methods for automatic human facial reaction generation under different dyadic interaction scenarios. The goal of the Challenge is to provide the first benchmark test set for multimodal information processing and to bring together the audio, visual and audio-visual affective computing communities, to compare the relative merits of the approaches to automatic appropriate facial reaction generation under well-defined conditions. 
+In dyadic interactions, humans communicate their intentions and state of mind using verbal and non-verbal cues, where multiple different facial reactions might be appropriate in response to a specific speaker behaviour. Then, how to develop a machine learning (ML) model that can automatically generate multiple appropriate, diverse, realistic and synchronised human facial reactions from an previously unseen speaker behaviour is a challenging task. Following the successful organisation of the first REACT challenge (REACT2023), we propose the second REACT Challenge focusing on developing generative models that can automatically output multiple appropriate, diverse, realistic and synchronised facial reactions under both online and offline settings. The Second REACT Challenge (REACT2024) is a satellite event of IEEE FG2024, (Istanbul, Turkey, May 2024). Different from the first edition of the REACT Challenge, this challenge encourages the participants to generate realistic images and video clips as results of their submission. Participants will develop and benchmark Machine Learning (ML) models that can be used to generate appropriate facial reactions given an input stimulus under various dyadic video conference settings, using two state-of-the-art datasets, namely, NOXI and RECOLA. As part of the challenge, we will provide challenge participants with the REACT Challenge Dataset that will be a compilation of NOXI and RECOLA recordings segmented into 30-secs interaction video-clips (pairs of videos) and baseline PyTorch code (including a well-developed dataloader).  We will then invite the participating groups to submit their developed / trained ML models for evaluation, which will be benchmarked in terms of the appropriateness diversity, realism and synchrony of the generated facial reactions.
+
+
 
 
 #### Task 1 - Offline Appropriate Facial Reaction Generation
@@ -45,7 +47,7 @@ pip install -r requirements.txt
 <p>
  
 **Challenge Data Description:**
-- The REACT 2024 Multimodal Challenge Dataset is a compilation of recordings from the following two publicly available datasets for studying dyadic interactions: [NOXI](https://dl.acm.org/doi/10.1145/3136755.3136780) and [RECOLA](https://ieeexplore.ieee.org/document/6553805). [UDIVA](https://www.computer.org/csdl/proceedings-article/wacvw/2021/196700a001/1sZ3sn1GBxe) was not part of the challenge, but we provide it in case participants want to explore it as well. 
+- The REACT 2024 Multimodal Challenge Dataset is a compilation of recordings from the following two publicly available datasets for studying dyadic interactions: [NOXI](https://dl.acm.org/doi/10.1145/3136755.3136780) and [RECOLA](https://ieeexplore.ieee.org/document/6553805). Although [UDIVA](https://www.computer.org/csdl/proceedings-article/wacvw/2021/196700a001/1sZ3sn1GBxe) was not part of the challenge, we will share it with you if you specifically request it.
 
 - Participants can apply for the data at our [Homepage](https://sites.google.com/cam.ac.uk/react2024).
    
@@ -265,7 +267,7 @@ python -m pytorch_fid  ./results/test_offline/fid/real  ./results/test_offline/f
 
 [1] Song, Siyang, Micol Spitale, Yiming Luo, Batuhan Bal, and Hatice Gunes. "Multiple Appropriate Facial Reaction Generation in Dyadic Interaction Settings: What, Why and How?." arXiv preprint arXiv:2302.06514 (2023).
 
-[2] Song, Siyang, Micol Spitale, Cheng Luo, German Barquero, Cristina Palmero, Sergio Escalera, Michel Valstar et al. "REACT2023: the first Multi-modal Multiple Appropriate Facial Reaction Generation Challenge." arXiv preprint arXiv:2306.06583 (2023).
+[2] Song, Siyang, Micol Spitale, Cheng Luo, Germán Barquero, Cristina Palmero, Sergio Escalera, Michel Valstar et al. "REACT2023: The First Multiple Appropriate Facial Reaction Generation Challenge." In Proceedings of the 31st ACM International Conference on Multimedia, pp. 9620-9624. 2023.
 
 #### Dataset papers:
 
@@ -285,7 +287,7 @@ python -m pytorch_fid  ./results/test_offline/fid/real  ./results/test_offline/f
 
 [9] Eyben, Florian, Martin Wöllmer, and Björn Schuller. "Opensmile: the munich versatile and fast open-source audio feature extractor." In Proceedings of the 18th ACM international conference on Multimedia, pp. 1459-1462. 2010.
 
-[10] Barquero, German, Sergio Escalera, and Cristina Palmero. "BeLFusion: Latent Diffusion for Behavior-Driven Human Motion Prediction." arXiv preprint arXiv:2211.14304 (2022). 
+[10] Barquero, German, Sergio Escalera, and Cristina Palmero. "Belfusion: Latent diffusion for behavior-driven human motion prediction." In Proceedings of the IEEE/CVF International Conference on Computer Vision, pp. 2317-2327. 2023.
 
 
 ### Submissions are encouraged to cite previous facial reaction generation papers:
