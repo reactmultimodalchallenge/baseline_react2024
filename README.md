@@ -172,9 +172,9 @@ python train_belfusion.py config=config/2_belfusion_ldm.yaml name=<NAME> arch.ar
  If you would rather skip training, download the following checkpoints and put them inside the folder './results'.
 <p>
  
- <b>Trans-VAE</b>: [download (TBA)]()
+ <b>Trans-VAE</b>: TBA
  
- <b>BeLFusion</b>: [download (TBA)]()
+ <b>BeLFusion</b>: [download](https://ubarcelona-my.sharepoint.com/:f:/g/personal/germanbarquero_ub_edu/EkRisY7MzX5MnP6tIVYhkdYBInl3lw3XXJuW6fEXnij4aQ?e=XZHvSw)
  
 </details>
 
