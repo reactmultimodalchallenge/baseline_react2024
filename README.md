@@ -164,6 +164,21 @@ python train_belfusion.py config=config/1_belfusion_vae.yaml name=All_VAEv2_W50
 python train_belfusion.py config=config/2_belfusion_ldm.yaml name=<NAME> arch.args.k=<INT (1 or 10)> arch.args.online=<BOOL>
 ```
 
+ <b>REGNN</b>
+ - Make sure you are in the folder `regnn` before running any cells related to REGNN.
+ - First extract the image features using the pre-trained swin_transformer and the audio features using the pre-trained vggish:
+ ```shell
+ python feature_extraction.py --split train --type video --data-dir <data-dir> --save-dir <data-dir>
+ python feature_extraction.py --split train --type audio --data-dir <data-dir> --save-dir <data-dir>
+ ```
+
+ The pretrained weights of swin_transformer and vggish can be donwloaded from [here](https://drive.google.com/drive/folders/18I-yfpY1mlLqp4-E443xxwXNWh3ET-RN?usp=sharing). For vggish, the script should be able to download the pre-trained weights from the Internet. If you encounter any url connection errors, please download it and mannually set the path to it in the file `regnn/models/torchvggish/vggish.py`.
+
+ - Then train the REGNN by running the following shell:
+ ```
+ bash scripts/train.sh
+ ```
+
  
 </p>
 </details>
@@ -175,6 +190,8 @@ python train_belfusion.py config=config/2_belfusion_ldm.yaml name=<NAME> arch.ar
  <b>Trans-VAE</b>: TBA
  
  <b>BeLFusion</b>: [download](https://ubarcelona-my.sharepoint.com/:f:/g/personal/germanbarquero_ub_edu/EkRisY7MzX5MnP6tIVYhkdYBInl3lw3XXJuW6fEXnij4aQ?e=XZHvSw)
+
+ <b>REGNN</b>: [download](https://drive.google.com/drive/folders/18I-yfpY1mlLqp4-E443xxwXNWh3ET-RN?usp=sharing)
  
 </details>
 
@@ -241,6 +258,16 @@ python evaluate.py  --resume ./results/train_online/best_checkpoint.pth  --gpu-i
 ```
 python -m pytorch_fid  ./results/test_offline/fid/real  ./results/test_offline/fid/fake
 ```
+
+ For evaluation of REGNN, there are two steps.
+ - First generate facial reactions and save them by running the script within the folder `regnn`:
+ ```
+ bash scripts/inference.sh
+ ```
+ - Then evaluate the predicted facial reactions by running the `evaluation.py` in the folder `regnn`:
+ ```
+ python evaluation.py --data-dir <data-dir> --pred-dir <pred-dir> split test
+ ```
 </p>
 </details>
 
