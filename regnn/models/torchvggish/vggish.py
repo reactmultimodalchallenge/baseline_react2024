@@ -150,9 +150,7 @@ class VGGish(VGG):
     def __init__(self, urls=model_urls, device=None, pretrained=True, preprocess=False, postprocess=True, progress=True):
         super().__init__(make_layers())
         if pretrained:
-            # state_dict = hub.load_state_dict_from_url(urls['vggish'], progress=progress)
-            state_dict = torch.load(r"/scratch/recface/hz204/react_data/pretrained/vggish-10086976.pth",
-                                    map_location='cpu')
+            state_dict = hub.load_state_dict_from_url(urls['vggish'], progress=progress)
             super().load_state_dict(state_dict)
 
         if device is None:
@@ -163,9 +161,7 @@ class VGGish(VGG):
         if self.postprocess:
             self.pproc = Postprocessor()
             if pretrained:
-                # state_dict = hub.load_state_dict_from_url(urls['pca'], progress=progress)
-                state_dict = torch.load(r"/scratch/recface/hz204/react_data/pretrained/vggish_pca_params-970ea276.pth",
-                                    map_location='cpu')
+                state_dict = hub.load_state_dict_from_url(urls['pca'], progress=progress)
                 # TODO: Convert the state_dict to torch
                 state_dict[vggish_params.PCA_EIGEN_VECTORS_NAME] = torch.as_tensor(
                     state_dict[vggish_params.PCA_EIGEN_VECTORS_NAME], dtype=torch.float
